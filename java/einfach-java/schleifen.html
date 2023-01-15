@@ -25,10 +25,107 @@ public void printNumberTriangle(int numberOfRows) {
 </pre>
 <ul>
 <li>
-die erste aeussere Schleife so aeufig durchgegen, wie <code>numbersOfRows</code> uebergeben werden.
+Ergebnis:
+<pre>
+jshell&gt; printNumberTriangle(4)
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+</pre>
 
 <li>
-die innere schleife immer nur so haeufig ausfuehren, wie <code>i</code> aktuell groß ist.
+Erlaeuterung:
+
+<ul>
+<li>
+Aussers Schleife:
+
+<ul>
+<li>
+wir wollen, dass die Schleife so haeufig ausgeführt wir, wie wir als <code>numberOfRows</code> als Parameter uebergeben.
+
+<li>
+Dafuer initialisieren wir <code>i</code> mit 0. Die Bedingung zum Abbruch der Schelife ist <code>i &lt; numberOfRows</code> und die Aenderung ist <code>i</code> um eins erhoet wird.
+
+<li>
+Der body der schleife ist eine innere Schelife
+
+</ul>
+<li>
+Innere Schleife:
+
+<ul>
+<li>
+Ziel deiser Schleife ist, eine Zahl auf der Konsole auszugeben.
+
+<li>
+wir definieren einen neuen Index <code>j</code> anfangend mit 0. <code>j</code> soll auf der Konsole ausgegeben werden aber dient auch als check der Abbruchbedingung.
+
+<li>
+Die Abbruchbedingung ist, dass <code>j</code> nich groeßer sein darf, als das aktuelle <code>i</code> der ausseren Schleife.
+
+<li>
+Um die Abruchbedungun auszuloesen wird <code>j</code> nach den ausführen erhoet.
+
+</ul>
+</ul>
+</ul>
+
+<p>
+Pyramide mit inkrementeller Zahlenfolge:
+</p>
+<pre>
+public void printNumberTriangle2(int numberOfRows) {
+  int counter = 1;
+  for (int i = 1; i &lt;= numberOfRows; i++) {
+    for (int j = 1; j &lt;= i; j++) {
+      System.out.print(counter + " ");
+      counter++;
+    }
+    System.out.println();
+  }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printNumberTriangle2(4)
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+</pre>
+
+<li>
+Das selbe Prinzip wie bei der ersten Methode, nur wird hier nicht das <code>j</code> als Zahl ausgegeben, sonder ein <code>counter</code> den wir ausserhalb der Schelfein definieren.
+
+</ul>
+
+<p>
+Pyramide mit Zahlen rueckwaerts ausgeben:
+</p>
+<pre>
+public void printNumberTriangleReverse(int numberOfRows) {
+  for (int i = numberOfRows - 1; i &gt;= 0; i--) {
+    for (int j = 0; j &lt;= i; j++) {
+      System.out.print((numberOfRows - j) + " ");
+    }
+    System.out.println();
+  }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printNumberTriangleReverse(4)
+4 3 2 1 
+4 3 2 
+4 3 
+4 
+</pre>
 
 </ul>
 
