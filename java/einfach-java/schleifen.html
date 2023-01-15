@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>schleifen</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Nested Loops"><h3 id="Nested Loops" class="header"><a href="#Nested Loops">Nested Loops</a></h3></div>
+
+<p>
+Das ausgeben von Pyramiden mit Zahlen:
+</p>
+<pre>
+public void printNumberTriangle(int numberOfRows) {
+  for (int i = 0; i &lt; numberOfRows; i++) {
+    for (int j = 0; j &lt;= i; j++) {
+      System.out.print(j + 1 + " ");
+    }
+    System.out.println();
+  }
+}  
+</pre>
+<ul>
+<li>
+die erste aeussere Schleife so aeufig durchgegen, wie <code>numbersOfRows</code> uebergeben werden.
+
+<li>
+die innere schleife immer nur so haeufig ausfuehren, wie <code>i</code> aktuell groß ist.
+
+</ul>
+
+</body>
+</html>

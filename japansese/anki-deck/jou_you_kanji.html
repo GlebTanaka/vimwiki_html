@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>jou_you_kanji</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="note"><h2 id="note" class="header"><a href="#note">note</a></h2></div>
+
+<p>
+ich moechte etwas mein Anki deck anpasse, fuer die Jouyou kanjis.
+Ich will auf der Rueckseite sowohl die story, als auch die radikale haben.
+Daher passe ich das html etwas an. 
+</p>
+
+<p>
+Das back template sieht so aus:
+</p>
+<pre>
+{{FrontSide}}
+
+&lt;hr id=answer&gt;
+
+&lt;span style="font-family:YUMIN;font-size:125px;"&gt;{{Kanji}}&lt;/span&gt;
+&lt;span style="font-family:YUGOTHB;font-size:125px;"&gt;{{Kanji}}&lt;/span&gt;&lt;BR&gt;
+&lt;span style="font-family:HGRKK;font-size:125px;"&gt;{{Kanji}}&lt;/span&gt;
+&lt;span style="font-family:StrokeOrder;font-size:125px;"&gt;{{Kanji}}&lt;/span&gt;
+
+{{#Alternative Kanji}}
+&lt;br&gt;
+↓ Alternative Kanji ↓ &lt;br&gt;
+&lt;span style="font-family:YUMIN;font-size:125px;"&gt;{{Alternative Kanji}}&lt;/span&gt;
+&lt;span style="font-family:YUGOTHB;font-size:125px;"&gt;{{Alternative Kanji}}&lt;/span&gt;&lt;BR&gt;
+&lt;span style="font-family:HGRKK;font-size:125px;"&gt;{{Alternative Kanji}}&lt;/span&gt;
+&lt;span style="font-family:StrokeOrder;font-size:125px;"&gt;{{Alternative Kanji}}&lt;/span&gt;
+{{/Alternative Kanji}}&lt;br&gt;
+
+&lt;span style="font-family: arial; font-size:30px; "&gt;
+{{#Story}}
+{{Story}} &lt;br&gt;
+{{/Story}}
+
+&lt;span style="font-family: arial; font-size:30px; "&gt;
+画数: {{Stroke Count}}, Nr: {{Heisig Number}}&lt;/span&gt;
+</pre>
+
+<p>
+ich brauch erstens nicht die 4 formate des kanjis, eins genuegt. Am meisten birngt
+mir die variante mit der Stroke order.
+</p>
+
+</body>
+</html>
