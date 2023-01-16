@@ -35,21 +35,21 @@ jshell&gt; printNumberTriangle(4)
 </pre>
 
 <li>
-Erlaeuterung:
+Erläuterung:
 
 <ul>
 <li>
-Aussers Schleife:
+Äussere Schleife:
 
 <ul>
 <li>
-wir wollen, dass die Schleife so haeufig ausgeführt wir, wie wir als <code>numberOfRows</code> als Parameter uebergeben.
+Wir wollen, dass die Schleife so häufig ausgeführt wir, wie wir als <code>numberOfRows</code> als Parameter übergeben.
 
 <li>
-Dafuer initialisieren wir <code>i</code> mit 0. Die Bedingung zum Abbruch der Schelife ist <code>i &lt; numberOfRows</code> und die Aenderung ist <code>i</code> um eins erhoet wird.
+Dafür initialisieren wir <code>i</code> mit 0. Die Bedingung zum Abbruch der Schleife ist <code>i &lt; numberOfRows</code> und die Änderung ist <code>i</code> um eins erhoet wird.
 
 <li>
-Der body der schleife ist eine innere Schelife
+Der body der schleife ist eine innere Schleife.
 
 </ul>
 <li>
@@ -57,16 +57,16 @@ Innere Schleife:
 
 <ul>
 <li>
-Ziel deiser Schleife ist, eine Zahl auf der Konsole auszugeben.
+Ziel dieser Schleife ist, eine Zahl auf der Konsole auszugeben.
 
 <li>
-wir definieren einen neuen Index <code>j</code> anfangend mit 0. <code>j</code> soll auf der Konsole ausgegeben werden aber dient auch als check der Abbruchbedingung.
+Wir definieren einen neuen Index <code>j</code> anfangend mit 0. <code>j</code> soll auf der Konsole ausgegeben werden aber dient auch als check der Abbruchbedingung.
 
 <li>
-Die Abbruchbedingung ist, dass <code>j</code> nich groeßer sein darf, als das aktuelle <code>i</code> der ausseren Schleife.
+Die Abbruchbedingung ist, dass <code>j</code> nicht größer sein darf, als das aktuelle <code>i</code> der äusseren Schleife.
 
 <li>
-Um die Abruchbedungun auszuloesen wird <code>j</code> nach den ausführen erhoet.
+Um die Abbruchbedingung auszulösen wird <code>j</code> nach den ausführen erhöht.
 
 </ul>
 </ul>
@@ -78,7 +78,7 @@ Pyramide mit inkrementeller Zahlenfolge:
 <pre>
 public void printNumberTriangle2(int numberOfRows) {
   int counter = 1;
-  for (int i = 1; i &lt;= numberOfRows; i++) {
+  FOR (INT I = 1; I &lt;= numberOfRows; i++) {
     for (int j = 1; j &lt;= i; j++) {
       System.out.print(counter + " ");
       counter++;
@@ -104,14 +104,53 @@ Das selbe Prinzip wie bei der ersten Methode, nur wird hier nicht das <code>j</c
 </ul>
 
 <p>
-Pyramide mit Zahlen rueckwaerts ausgeben:
+Pyramide mit inkrementeller Zahlenfolge ab jeder neuen Zeile:
+</p>
+<pre>
+public void printNumberTriangle3(int numberOfRows) {
+  int counter = 0;
+  for (int i = 1; i &lt;= numberOfRows; i++) {
+    for (int j = numberOfRows - (numberOfRows - i); j &lt;= counter + i; j++) {
+      System.out.print(j + " ");
+    }
+    System.out.println();
+    counter++;
+  }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printNumberTriangle3(4)
+1 
+2 3 
+3 4 5 
+4 5 6 7 
+</pre>
+
+<li>
+hier dient der <code>counter</code> nicht zur Ausgabe, sonder zur Abbruchbedingung der inneren Schleife. <code>counter + i</code> ergibt immer die maximale Anzahl an erwünschten Ausgaben auf einer Zeile.
+
+<li>
+<code>j</code> wird mit dieser Formel bestimmt: <code>numberOfRows - (numberOfRows - i)</code>
+
+<ul>
+<li>
+Dadurch wird die Ausgangszahl in jeder neuen Zeile um eins erhöht.
+
+</ul>
+</ul>
+
+<p>
+Pyramide mit Zahlen rückwärts ausgeben:
 </p>
 <pre>
 public void printNumberTriangleReverse(int numberOfRows) {
   for (int i = numberOfRows - 1; i &gt;= 0; i--) {
     for (int j = 0; j &lt;= i; j++) {
       System.out.print((numberOfRows - j) + " ");
-    }
+    
     System.out.println();
   }
 }
