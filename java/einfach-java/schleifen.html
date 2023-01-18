@@ -168,5 +168,71 @@ jshell&gt; printNumberTriangleReverse(4)
 
 </ul>
 
+<p>
+Pyramide mit Zahlen rückwärts ausgeben, mit fortlaufender Zahlenfolge:
+</p>
+<pre>
+public void printTriangle5(int row) {
+    int numberToPrint = 0;
+    for (int i = 0; i &lt;= row; i++) {
+        numberToPrint = numberToPrint + i;
+    }
+    for (int k = row - 1; k &gt;= 0; k--) {
+        for (int l = 0; l &lt;= k; l++) {
+            System.out.print(numberToPrint + " ");
+            numberToPrint--;
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Hierbei muss als erstes die erste Zahl, also die Größe der Zahlenfolge bestimmt werden.
+
+<li>
+Mit einer For-Schleife wird auf <code>numberToPrint</code> um <code>i</code> erhöht und auf sich selbt aufsummiert.
+
+<li>
+Der Rest ist gleich wie beim ausgeben einer normalen Pyramide rückwärts, mann muss nur in der innerer Schleife <code>numberToPrint</code> um einen heruntersetzen.
+
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printTriangle5(4)
+10 9 8 7 
+6 5 4 
+3 2 
+1 
+</pre>
+
+</ul>
+
+<p>
+Pyramide mit Zahlen rückwarts ausgeben, ab jeder neuen Zeile verrigert sich die Zahlenfolge:
+</p>
+<pre>
+public void printTriangle6(int numberOfRows) {
+    for (int i = 0; i &lt;= numberOfRows - 1; i++) {
+        for (int j = numberOfRows - i; j &gt; 0; j--) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Ergenmis:
+<pre>
+jshell&gt; printTriangle6(4)
+4 3 2 1 
+3 2 1 
+2 1 
+1
+</pre>
+
+</ul>
+
 </body>
 </html>
