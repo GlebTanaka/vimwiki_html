@@ -11,7 +11,7 @@
 <div id="Nested Loops"><h3 id="Nested Loops" class="header"><a href="#Nested Loops">Nested Loops</a></h3></div>
 
 <p>
-Das ausgeben von Pyramiden mit Zahlen:
+Das ausgeben von Dreiecken mit Zahlen:
 </p>
 <pre>
 public void printNumberTriangle(int numberOfRows) {
@@ -70,10 +70,29 @@ Um die Abbruchbedingung auszulösen wird <code>j</code> nach den ausführen erh�
 
 </ul>
 </ul>
+<li>
+Alternativ lässt sich das selbe mit einer Do-While Schleife machen:
+<pre>
+public void printTriangleWithDoWhileLoop(int numberOrRows) {
+    int firstIndex = 0;
+    do {
+        int secondIndex = 0;
+        do {
+            System.out.print(secondIndex + 1 + " ");
+            secondIndex++;
+        }
+        while(secondIndex &lt;= firstIndex);
+        System.out.println();
+        firstIndex++;
+    }
+    while(firstIndex &lt;= numberOrRows - 1);
+}
+</pre>
+
 </ul>
 
 <p>
-Pyramide mit inkrementeller Zahlenfolge:
+Dreieck mit inkrementeller Zahlenfolge:
 </p>
 <pre>
 public void printNumberTriangle2(int numberOfRows) {
@@ -101,10 +120,28 @@ jshell&gt; printNumberTriangle2(4)
 <li>
 Das selbe Prinzip wie bei der ersten Methode, nur wird hier nicht das <code>j</code> als Zahl ausgegeben, sonder ein <code>counter</code> den wir ausserhalb der Schelfein definieren.
 
-</ul>
+<li>
+Alternativ geht das auch mit einer While Schleife:
+<pre>
+void printNumberTriangleWithWhileLoop(int numberOfRows) {
+    int numberToPrint = 1;
+    int firstIndex = 0;
+    while (firstIndex &lt;= numberOfRows - 1) {
+        int secondIndex = 0;
+        while (secondIndex &lt;= firstIndex) {
+            System.out.print(numberToPrint + " ");
+            numberToPrint++;
+            secondIndex++;
+        }
+        System.out.println();
+        firstIndex++;
+    }
+}
+</pre>
 
+</ul>
 <p>
-Pyramide mit inkrementeller Zahlenfolge ab jeder neuen Zeile:
+Dreieck mit inkrementeller Zahlenfolge ab jeder neuen Zeile:
 </p>
 <pre>
 public void printNumberTriangle3(int numberOfRows) {
@@ -143,7 +180,7 @@ Dadurch wird die Ausgangszahl in jeder neuen Zeile um eins erhöht.
 </ul>
 
 <p>
-Pyramide mit Zahlen rückwärts ausgeben:
+Dreieck mit Zahlen rückwärts ausgeben:
 </p>
 <pre>
 public void printNumberTriangleReverse(int numberOfRows) {
@@ -166,10 +203,23 @@ jshell&gt; printNumberTriangleReverse(4)
 4 
 </pre>
 
+<li>
+Alternativ geht das auch so:
+<pre>
+public void printTriangle4(int row) {
+    for (int i = 0; i &lt;= row - 1; i++) {
+        for (int j = 0; j &lt;= (row - i) - 1; j++) {
+            System.out.print((row - j) + " ");
+        }
+        System.out.println();
+    }
+}
+</pre>
+
 </ul>
 
 <p>
-Pyramide mit Zahlen rückwärts ausgeben, mit fortlaufender Zahlenfolge:
+Dreieck mit Zahlen rückwärts ausgeben, mit fortlaufender Zahlenfolge:
 </p>
 <pre>
 public void printTriangle5(int row) {
@@ -194,7 +244,7 @@ Hierbei muss als erstes die erste Zahl, also die Größe der Zahlenfolge bestimm
 Mit einer For-Schleife wird auf <code>numberToPrint</code> um <code>i</code> erhöht und auf sich selbt aufsummiert.
 
 <li>
-Der Rest ist gleich wie beim ausgeben einer normalen Pyramide rückwärts, mann muss nur in der innerer Schleife <code>numberToPrint</code> um einen heruntersetzen.
+Der Rest ist gleich wie beim ausgeben einer normalen Dreiecks rückwärts, mann muss nur in der innerer Schleife <code>numberToPrint</code> um einen heruntersetzen.
 
 <li>
 Ergebnis:
@@ -209,7 +259,7 @@ jshell&gt; printTriangle5(4)
 </ul>
 
 <p>
-Pyramide mit Zahlen rückwarts ausgeben, ab jeder neuen Zeile verrigert sich die Zahlenfolge:
+Dreicke mit Zahlen rückwarts ausgeben, ab jeder neuen Zeile verringert sich die Zahlenfolge:
 </p>
 <pre>
 public void printTriangle6(int numberOfRows) {
@@ -223,7 +273,7 @@ public void printTriangle6(int numberOfRows) {
 </pre>
 <ul>
 <li>
-Ergenmis:
+Ergenbis:
 <pre>
 jshell&gt; printTriangle6(4)
 4 3 2 1 
@@ -232,7 +282,265 @@ jshell&gt; printTriangle6(4)
 1
 </pre>
 
+<li>
+Das selbe Ergebnis lässt sich auch so machen:
+<pre>
+public void printTrianlge3(int row) {
+    for (int i = row - 1; i &gt;= 0; i--) {
+        for (int j = i; j &gt;= 0; j--) {
+            System.out.print(j + 1 + " ");
+        }
+        System.out.println();
+    }
+}
+</pre>
+
 </ul>
+
+<p>
+Ausgeben einer Dreieck mit Buchstaben:
+</p>
+<pre>
+public void printLetterTriangle(int numberOfRows) {
+    char firstCharacter = 'A';
+    for (int i = 0; i &lt; numberOfRows; i++) {
+        for (int j = 0; j &lt;= i; j++) {
+            System.out.print(firstCharacter + " ");
+        }
+        System.out.println();
+        firstCharacter++;
+    }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printLetterTriangle(4)
+A 
+B B 
+C C C 
+D D D D 
+</pre>
+
+</ul>
+
+<p>
+Ausgeben einer Dreieck mit Bucshtaben, wo jede Zeile inkrementiert wird:
+</p>
+<pre>
+public void printLetterTriangle1(int rowNumber) {
+    for (int i = 0; i &lt; rowNumber; i++) {
+        int letter = 65;
+        for (int j = 0; j &lt;= i; j++) {
+            System.out.print((char) (letter + j) + " ");
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printLetterTriangle1(4)
+A 
+A B 
+A B C 
+A B C D 
+</pre>
+
+</ul>
+<p>
+Ausgeben eines Dreiecks mit Buchstaben auf dem Kopf:
+</p>
+<pre>
+public void printLetterTriangle2(int rowNumber) {
+    for (int i = rowNumber - 1; i &gt;= 0; i--) {
+        int letter = 65;
+        for (int j = 0; j &lt;= i; j++) {
+            System.out.print((char) (letter + j) + " ");
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printLetterTriangle2(4)
+A B C D 
+A B C 
+A B 
+A 
+</pre>
+
+</ul>
+
+<p>
+Kombination beider Methoden um ein K-Shape auszugeben:
+</p>
+<pre>
+public void printKShape(int maxWidth) {
+    printLetterTriangle2(maxWidth);
+    printLetterTriangle1(maxWidth);
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printKShape(4)
+A B C D 
+A B C 
+A B 
+A 
+A 
+A B 
+A B C 
+A B C D 
+</pre>
+
+</ul>
+
+<div id="Print Pyramid Shape"><h3 id="Print Pyramid Shape" class="header"><a href="#Print Pyramid Shape">Print Pyramid Shape</a></h3></div>
+<p>
+Ausgabe einer Pyramide mit inkrementeller Zahlenfolge:
+</p>
+<pre>
+public void printNumbetPyramid(int numberOfRows) {
+    int numberToPrint = 1;
+    for (int i = 0; i &lt;= numberOfRows - 1; i++) {
+        for (int j = 0; j &lt;= numberOfRows - i; j++) {
+            System.out.print(" ");
+        }
+        for (int k = 0; k &lt;= i; k++) {
+            System.out.print(numberToPrint + " ");
+            numberToPrint++;
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Hier muss in Body der äußeren Schleife als erstes füer jede Zeile die Lehrzeichen ausgegeben werden.
+
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printNumbetPyramid(4)
+     1 
+    2 3 
+   4 5 6 
+  7 8 9 10 
+</pre>
+
+</ul>
+
+<p>
+Ausgabe einer Pyramide mit inkrementeller Zahlenfolge auf dem Kopf:
+</p>
+<pre>
+public void printNumberTrianlgeUpsideDown(int numberOfRows) {
+    int numberToPrint = 0;
+    for (int i = 0; i &lt;= numberOfRows; i++) {
+        numberToPrint = numberToPrint + i;
+    }
+    for (int j = numberOfRows; j &gt; 0; j--) {
+        for (int k = numberOfRows - j; k &gt; 0; k--) {
+            System.out.print(" ");
+        }
+        for (int l = 0; l &lt;= j - 1; l++) {
+            System.out.print(numberToPrint + " ");
+            numberToPrint--;
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; printNumberTrianlgeUpsideDown(4)
+10 9 8 7 
+ 6 5 4 
+  3 2 
+   1 
+</pre>
+
+</ul>
+<div id="Print Diamond Shape"><h3 id="Print Diamond Shape" class="header"><a href="#Print Diamond Shape">Print Diamond Shape</a></h3></div>
+
+<pre>
+public void drawHollowDiamondShape(int maxWidth) {
+    for (int i = 0; i &lt; maxWidth; i ++) {
+        for (int j = 0; j &lt; maxWidth - i; j++) {
+            System.out.print(" ");
+        }
+        for (int k = 0; k &lt; 2 * i + 1; k++) {
+            if (k == 0 || k == 2 * i) {
+                System.out.print("*");
+            } else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
+    for (int i = maxWidth - 2; i &gt;= 0; i--) {
+        for (int j = 0; j &lt; maxWidth - i; j++) {
+            System.out.print(" ");
+        }
+        for (int k = 0; k &lt; 2 * i + 1; k++) {
+           if (k == 0 || k == 2 * i) {
+                System.out.print("*");
+            } else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
+}
+</pre>
+<ul>
+<li>
+Wie schon bei dem Pyramiden mit Zahlen, müssen ersteinmal die Lehrzeiche in jeder Zeiel ausgegeben werden.
+
+<li>
+Der Check/Bedingung für einen Zeilendurchlauf mit Zeichen ist: <code>2 * i + 1</code>
+
+<ul>
+<li>
+Das stellt sicher, dass immer eine ungerade Zahl als Check für die Schleife ist.
+
+</ul>
+<li>
+Um den Diamanten leehr zu machen, ist dieser Guard: <code>(k == 0 || k == 2 * i)</code>
+
+<ul>
+<li>
+Eine andere variante ist: <code>(k % 2 == 0)</code> - Dann wird nur jeder zweite Stern ausgegeben.
+
+</ul>
+<li>
+Ergebnis:
+<pre>
+jshell&gt; drawHollowDiamondShape(5)
+     *
+    * *
+   *   *
+  *     *
+ *       *
+  *     *
+   *   *
+    * *
+     *
+}}]
+
+</ul>
+</pre>
 
 </body>
 </html>
