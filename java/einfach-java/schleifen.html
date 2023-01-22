@@ -404,6 +404,34 @@ A B C D
 
 </ul>
 
+<p>
+Zum schluss noch mal eine Methode ein Dreieck mit inkrementalen zahlen auszugeben, aber mit einem Fallvergleich für das Ausgeben von Lehrzeichen:
+</p>
+<pre>
+jshell&gt; public void printNumberTriangle(int numberOfRows) {
+   ...&gt;     int numberToPrint = 1;
+   ...&gt;     for (int rows = 0; rows &lt;= numberOfRows - 1; rows++) {
+   ...&gt;         int numberOfColumns = 2 * rows + 1;
+   ...&gt;         for (int columns = 0; columns &lt; numberOfColumns; columns++) {
+   ...&gt;             if (columns % 2 == 0) {
+   ...&gt;                 System.out.print(numberToPrint);
+   ...&gt;                 numberToPrint++;
+   ...&gt;             } else {
+   ...&gt;                 System.out.print(" ");
+   ...&gt;             }
+   ...&gt;         }
+   ...&gt;         System.out.println();
+   ...&gt;     }
+   ...&gt; }
+|  created method printNumberTriangle(int)
+
+jshell&gt; printNumberTriangle(4)
+1
+2 3
+4 5 6
+7 8 9 10
+</pre>
+
 <div id="Print Pyramid Shape"><h3 id="Print Pyramid Shape" class="header"><a href="#Print Pyramid Shape">Print Pyramid Shape</a></h3></div>
 <p>
 Ausgabe einer Pyramide mit inkrementeller Zahlenfolge:
@@ -537,10 +565,90 @@ jshell&gt; drawHollowDiamondShape(5)
    *   *
     * *
      *
-}}]
+</pre>
 
 </ul>
+
+<ul>
+<li>
+Refactoring:
+
+<ul>
+<li>
+Der ganze Code-Block ist so etwas groß und widerholt sich an einigen Stellen.
+
+<li>
+Als erstes kann man eine Methode extrahieren, die die Lehrzeichen ausgibt:
+<pre>
+private void drawSpaces(int size, int currentRow) {
+    int numberOfSpaces = size - currentRow;
+    for (int column = 0; column &lt;= numberOfSpaces - 1; column++) {
+        System.out.print(" ");
+    }
+}
 </pre>
+
+<li>
+Als nächste kann die Mehtode extrachiert werden, um die Sterne auszugeben:
+<pre>
+private void drawStars(int currentRow) {
+    int numberOfColumns = currentRow * 2 + 1;
+    for (int column = 0; column &lt;= numberOfColumns - 1; column++) {
+        if (column == 0 || column == 2 * currentRow) {
+            System.out.print("*");
+        } else {
+            System.out.print(" ");
+        }
+    }
+}
+</pre>
+
+<li>
+Als nächstes kann der Diamand in zwei methoden aufgeteilt werden. Eine Methode für den oberen und unteren teil:
+<pre>
+private void drawUpperPart(int numberOfRows) {
+    for (int currentRow = 0; currentRow &lt;= numberOfRows - 1; currentRow++) {
+        drawSpaces(numberOfRows, currentRow);
+        drawStars(currentRow);
+        System.out.println();
+    }
+}
+</pre>
+
+<li>
+und unterer Teil:
+<pre>
+private void drawLowerPart(int numberOfRows) {
+    for (int currentRow = numberOfRows - 2; currentRow &gt;= 0; currentRow--) {
+        drawSpaces(numberOfRows, currentRow);
+        drawStars(currentRow);
+        System.out.println();
+    }
+}
+</pre>
+
+<li>
+zum Schluss beide methoden in einer aufrufen:
+<pre>
+jshell&gt; public void drawDiamond(int size) {
+   ...&gt;     drawUpperPart(size);
+   ...&gt;     drawLowerPart(size);
+   ...&gt; }
+|  created method drawDiamond(int)
+jshell&gt; drawDiamond(5)
+     *
+    * *
+   *   *
+  *     *
+ *       *
+  *     *
+   *   *
+    * *
+     *
+</pre>
+
+</ul>
+</ul>
 
 </body>
 </html>
