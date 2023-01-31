@@ -501,6 +501,32 @@ jshell&gt; printNumberTrianlgeUpsideDown(4)
 
 </ul>
 <div id="Print Diamond Shape"><h3 id="Print Diamond Shape" class="header"><a href="#Print Diamond Shape">Print Diamond Shape</a></h3></div>
+<p>
+Grundsätzlich muss man sich das als eine Matrix vorstellen, mit Zeilen und Spalten:
+</p>
+<pre>
+der Underscore soll hier ein als Lehrzeichen gemeint sein.
+
+|   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---+---+---+---+---+---+---+---+---+---|
+| 0 | _ | _ | _ | _ | * |   |   |   |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 1 | _ | _ | _ | * | _ | * |   |   |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 2 | _ | _ | * | _ | _ | _ | * |   |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 3 | _ | * | _ | _ | _ | _ | _ | * |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 4 | * | _ | _ | _ | _ | _ | _ | _ | * |    &lt;--- bis hier läuft der obere teil der Pyramide
+|---+---+---+---+---+---+---+---+---+---|
+| 3 | _ | * | _ | _ | _ | _ | _ | * |   |    &lt;--- ab hier wird eine zweite Pyramide auf dem Kopf ausgegeben
+|---+---+---+---+---+---+---+---+---+---|
+| 2 | _ | _ | * | _ | _ | _ | * |   |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 1 | _ | _ | _ | * | _ | * |   |   |   |
+|---+---+---+---+---+---+---+---+---+---|
+| 0 | _ | _ | _ | _ | * |   |   |   |   |
+</pre>
 
 <pre>
 public void drawHollowDiamondShape(int maxWidth) {
@@ -646,6 +672,100 @@ jshell&gt; drawDiamond(5)
     * *
      *
 </pre>
+
+</ul>
+</ul>
+
+<ul>
+<li>
+Eine andere Möglichkeit ohne trennung in zwei Methoden ist diese hier:
+<pre>
+ public void drawDiamondShapeV2(int size) {
+     int maxRows = size * 2 - 2;
+     for (int row = 0; row &lt;= maxRows; row++)
+         int width;
+         int spaces;
+         if (row &gt;= size) {
+             width = (maxRows - row) * 2;
+             spaces = size - (maxRows - row) 
+         } else {
+             width = row * 2;
+             spaces = size - row - 1;
+         }
+         for (int col = 0; col &lt; spaces; col+
+             System.out.print(" ");
+         }
+         for (int col = 0; col &lt;= width; col+
+
+             if (col == 0 || col == width) {
+                 System.out.print("*");
+             } else {
+                 System.out.print(" ");
+             }
+         }
+         System.out.println();
+     }
+ }
+</pre>
+
+<ul>
+<li>
+Hier berechnen wir als erstes die maximale Länge der Zeilen mit dem übergeben Argumen <code>size * 2 - 2</code>.
+
+<ul>
+<li>
+bei einem Beispiel wert von <code>5</code> verdoppel wir den wert auf <code>2</code> und subtrahieren <code>-2</code>.
+
+<li>
+Eine Zeile wird abgerechten weil die untere Pyramide eine Zeile weniger hat.
+
+<li>
+Die zweite Zeile muss nur dann abgezogen, wenn die Zeilen bei den Schleifen mit <code>0</code> inizialisiert werden.
+
+</ul>
+<li>
+Für jede Zeile müssen zwei Variablen ermittelt werden.
+
+<ol>
+<li>
+Der Abstand zum Zeilenanfang und dem ersten Charcter der Pyramide <code>int spaces</code>
+
+<li>
+Die Breite der Pyramide in der aktuellen Zeile <code>int width</code>
+
+</ol>
+<li>
+Dabei muss aber unterschieden werden, ob wir uns aktuell im oberen oder unteren Teil der Pyramide befinden.
+
+<ul>
+<li>
+Überprüfen, ob die aktuelle Zeiel größer oder gleich des übergenen Argumentes <code>size</code> ist: <code>row &gt;= size</code>
+
+<li>
+Im oberen teil findet diese Zuordnung statt:
+
+<ul>
+<li>
+<code>width = row * 2</code>
+
+<li>
+<code>spaces = size - row - 1</code>
+
+</ul>
+<li>
+Im unteren teil wiederum diese:
+
+<ul>
+<li>
+<code>width = (maxRows - row) * 2</code>
+
+<li>
+<code>spaces = size - (maxRows - row) - 1</code>
+
+</ul>
+</ul>
+<li>
+Mit diesen Werten kann dann einfach für die aktuelle Zeile die Lehrzeichen und die Sterne ausgegeben werden.
 
 </ul>
 </ul>
