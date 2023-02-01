@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>learnings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Essential"><h2 id="Essential" class="header"><a href="#Essential">Essential</a></h2></div>
+
+<div id="Essential-Search everywhere"><h3 id="Search everywhere" class="header"><a href="#Essential-Search everywhere">Search everywhere</a></h3></div>
+<ul>
+<li>
+to open <code>Search Everywhere</code> you need to press <code>Shift</code> twice.
+
+<li>
+suppouse you are looking for a class with the <code>quadratic</code> and <code>equation</code> words in the name. Type <code>que</code> in the search field.
+
+<li>
+Select <code>QuadraticEquationsSolver</code> with the keyboard arrows and press <code>Cr</code> to jumg to the definition of this class.
+
+<li>
+to find only classes or search only in some specific directories, use <code>Cmd-O</code> to narrow search.
+
+<li>
+suppose you need some library class responsible for buffered reading from an input stream.
+  Type <code>bufre</code>. But do not navigate to it yet.
+
+<li>
+Now you can see a class inside this demo project. However, we need ot find its impementation in libraries.
+  Let's swithc the <code>Project Files</code> filter to <code>All Places</code>, and you will see the content of acailable libraries.
+
+<li>
+Press <code>F1</code> to preview available documentation.
+
+<li>
+Press <code>Esc</code> to clos the popup.
+
+<li>
+Similary, you can use <code>Cmd-Opt-O</code> to look for a method or glabal variable and use <code>Cmd-Shift-O</code> to look for a file.
+
+</ul>
+
+<div id="Essential-Find and replace in files"><h3 id="Find and replace in files" class="header"><a href="#Essential-Find and replace in files">Find and replace in files</a></h3></div>
+<ul>
+<li>
+suppose you want to find all occurrences of some string in the project. 
+  Press <code>Shift-Cmd-F</code> to opne the *<span id="Essential-Find and replace in files-Find in Files"></span><strong id="Find in Files">Find in Files</strong>* window.
+
+<li>
+type <code>apple</code> to search for all textual occurrences in the Learning project.
+
+<li>
+You were supposed to find the <code>apple</code> string but also git some <code>pineapple</code> entries.
+  Let's narrow down the search to a whole word. Click on the W-symbol or press <code>Alt-W</code>.
+
+<li>
+You can see the context of the foudn string in the embedded editor. Click the highlighted row or navigate to it by using Up and Down arrows.
+
+<li>
+Also, you can open the selceted file in the main editor.
+  Press <code>Cr</code> or double-click the row to move to this file.
+
+<li>
+Suppose you want to replace all found occurrences with another string. It may be very boring to perform replacing in each file seqeuntially. 
+  IntelliJ IDEA will help you with this taks. Press <code>Shift-Cmd-R</code> to open *<span id="Essential-Find and replace in files-Replace in File"></span><strong id="Replace in File">Replace in File</strong>* window.
+
+<li>
+Let's replace all occurrences of <code>apple</code> with <code>orange</code>. Type <code>orange</code> in the highlighted field.
+
+<li>
+You can define the scope of search and replace. Click the *<span id="Essential-Find and replace in files-Directory"></span><strong id="Directory">Directory</strong>* button or press <code>Alt-D</code> to narrow the replacement only to current directory.
+
+<li>
+Press *<span id="Essential-Find and replace in files-Replace All"></span><strong id="Replace All">Replace All</strong>* to start refactoring.
+
+</ul>
+
+<div id="Code Assistance"><h2 id="Code Assistance" class="header"><a href="#Code Assistance">Code Assistance</a></h2></div>
+<div id="Code Assistance-Quick Popup"><h3 id="Quick Popup" class="header"><a href="#Code Assistance-Quick Popup">Quick Popup</a></h3></div>
+<ul>
+<li>
+press <code>F1</code> to see the documentation for the symbol ot the caret.
+
+<li>
+press <code>Esc</code> to close the popup.
+
+<li>
+press <code>Alt-Space</code> to see the definition of the symbol at the caret. 
+
+</ul>
+
+<div id="Navigation"><h2 id="Navigation" class="header"><a href="#Navigation">Navigation</a></h2></div>
+<div id="Navigation-File structure"><h3 id="File structure" class="header"><a href="#Navigation-File structure">File structure</a></h3></div>
+<ul>
+<li>
+A large source file can be difficult to read and navigate. Sometimes you only need to preview it.
+  Press <code>Cmd-F12</code> to open the file structure.
+
+<li>
+Suppose you want to find a methid with *<span id="Navigation-File structure-Homo"></span><strong id="Homo">Homo</strong>* and *<span id="Navigation-File structure-Sapiens"></span><strong id="Sapiens">Sapiens</strong>* words in its name.
+  Type <code>hosa</code> to filter the file structure
+
+<li>
+Only one item remains. Now press <code>Cr</code> to jump to the selecteed item.
+
+<li>
+IntelliJ IDEA can also show you the file structure as a tool window. Open with <code>Cmd-7</code>.
+
+</ul>
+
+<div id="Navigation-Decleration and usage"><h3 id="Decleration and usage" class="header"><a href="#Navigation-Decleration and usage">Decleration and usage</a></h3></div>
+<ul>
+<li>
+press <code>Cmd-B</code> to jump to the decleration of a method.
+
+<li>
+Now the caret is at the method's decelatation. Use the same shortcut <code>Cmd-B</code> to see all of its usages, then select one of them.
+
+<li>
+Press <code>Alt-F7</code> to see a more detailed view of usages. You can invoke <code>Alt-F7</code> on either a declaration or a usage.
+
+<li>
+From the *<span id="Navigation-Decleration and usage-Find"></span><strong id="Find">Find</strong>* view you can navigate both to usages and declarations. The next search will override these results in the <code>Find</code> view. To prevent it, pin the results:
+  right-Click the tab title, foo *<span id="Navigation-Decleration and usage-In All Places"></span><strong id="In All Places">In All Places</strong>*.
+
+<li>
+Select *<span id="Navigation-Decleration and usage-Pin Tab"></span><strong id="Pin Tab">Pin Tab</strong>*.
+
+<ul>
+<li>
+to close a tab press <code>Ctrl-Shift-F4</code>
+
+</ul>
+<li>
+When you have finished borwsing usages, press <code>Shift-Esc</code> to hide the view.
+
+<li>
+Press <code>Cmd-3</code> to open the *<span id="Navigation-Decleration and usage-Find"></span><strong id="Find">Find</strong>* view again.
+
+</ul>
+
+<div id="Navigation-Inheritance hierarchy"><h3 id="Inheritance hierarchy" class="header"><a href="#Navigation-Inheritance hierarchy">Inheritance hierarchy</a></h3></div>
+<p>
+//<span class="todo">TODO</span>
+</p>
+<div id="Navigation-Code Completion"><h3 id="Code Completion" class="header"><a href="#Navigation-Code Completion">Code Completion</a></h3></div>
+<div id="Navigation-Code Completion-Statement completion"><h4 id="Statement completion" class="header"><a href="#Navigation-Code Completion-Statement completion">Statement completion</a></h4></div>
+<ul>
+<li>
+press <code>Shfit-Cmd-Cr</code> to complete the *<span id="Navigation-Code Completion-Statement completion-for"></span><strong id="for">for</strong>* statement.
+<pre>
+  for (int j = 2; j &lt; i; j++)
+</pre>
+
+<ul>
+<li>
+this will add the brackets to the body
+
+</ul>
+<li>
+type *<span id="Navigation-Code Completion-Statement completion-if"></span><strong id="if">if</strong>* and press <code>Sfhit-Cmd-Cr</code> to generate the statement.
+<pre>
+  if () {
+  }
+</pre>
+
+<ul>
+<li>
+Add a condition inside the parentheses *<span id="Navigation-Code Completion-Statement completion-i % j == 0"></span><strong id="i % j == 0">i % j == 0</strong>* and press <code>Shift-Cmd-Cr</code> to jump into the *<span id="Navigation-Code Completion-Statement completion-if"></span><strong id="if">if</strong>* statement.
+
+</ul>
+<li>
+type a line of code: *<span id="Navigation-Code Completion-Statement completion-isPrime = false; break"></span><strong id="isPrime = false; break">isPrime = false; break</strong>* and then press <code>Shift-Cmd-Cr</code> to complete the statement and apply formating
+
+<li>
+the hole code
+<pre>
+class PrimeNumbers {
+    public static void main(String[] args) {
+        System.out.println("Prime numbers between 1 and 100");
+
+        for (int i = 2; i &lt; 100; i++) {
+            boolean isPrime = true;
+
+            for (int j = 2; j &lt; i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+</pre>
+
+</ul>
+  
+<div id="Navigation-Code Completion-Completion with tab"><h4 id="Completion with tab" class="header"><a href="#Navigation-Code Completion-Completion with tab">Completion with tab</a></h4></div>
+<ul>
+<li>
+Press <code>Cntrl-Space</code> to see completion suggestions. If you do not see *<span id="Navigation-Code Completion-Completion with tab-DO_NOTHING_ON_CLOSE"></span><strong id="DO_NOTHING_ON_CLOSE">DO_NOTHING_ON_CLOSE</strong>* in the list of suggestions, start typing *<span id="Navigation-Code Completion-Completion with tab-DO_NOTHING_ON_CLOSE"></span><strong id="DO_NOTHING_ON_CLOSE">DO_NOTHING_ON_CLOSE</strong>*
+
+<li>
+//<span class="todo">TODO</span> I've have a Shortcut conflict with this command
+
+<ul>
+<li>
+you can choose this action also by menu bar Code | Code Completion | Basic
+
+</ul>
+<li>
+Select *<span id="Navigation-Code Completion-Completion with tab-DO_NOTHING_ON_CLOSE"></span><strong id="DO_NOTHING_ON_CLOSE">DO_NOTHING_ON_CLOSE</strong>* and press Tab. This action does not simply insert the selected suggestions but replaces the word at the caret completely.
+
+</ul>
+
+<div id="Navigation-Code Completion-Postfix completion"><h4 id="Postfix completion" class="header"><a href="#Navigation-Code Completion-Postfix completion">Postfix completion</a></h4></div>
+<ul>
+<li>
+Postfix Completion helps you reduce backward caret jumps as you write code. It lets you trasform an already typed expression into another one based on the posftix you add, the type of expression, and its context. Type <code>.</code> after the parantesis to see the list of postfix completion suggestions.
+
+<li>
+select a Suggestion like <code>if</code> from the list or type the same value in the editor. Press <code>CR</code> to complete statement.
+
+</ul>
+
+<div id="Refactoring"><h2 id="Refactoring" class="header"><a href="#Refactoring">Refactoring</a></h2></div>
+<div id="Refactoring-Extract variable"><h3 id="Extract variable" class="header"><a href="#Refactoring-Extract variable">Extract variable</a></h3></div>
+<ul>
+<li>
+press <code>Alt-Cmd-V</code> to extract a local variable from an expression in a code block.
+
+<li>
+If the same expressione occures several time, choose <code>replace all</code>
+
+<li>
+Choose a name for the new varibale or leave it as it is.
+
+</ul>
+
+<div id="Refactoring-Extract method"><h3 id="Extract method" class="header"><a href="#Refactoring-Extract method">Extract method</a></h3></div>
+<ul>
+<li>
+press <code>Alt-Cmd-M</code> to extract a selectd code block into a method.
+
+<li>
+Edit the name of the new method or leave the one that IDE proposed. Then press <code>CR</code>
+
+<li>
+If the code block has severel occurenses, the IDE is asking if you want to replace the next one too.
+
+</ul>
+
+<div id="Refactoring-Refactoring menu"><h3 id="Refactoring menu" class="header"><a href="#Refactoring-Refactoring menu">Refactoring menu</a></h3></div>
+<ul>
+<li>
+IntelliJ IDEA supports a variety of refactoring. Many of htem have their own shortcuts. To access some rarely used refactoring, press <code>Ctrl-T</code> and peview a partial list of them.
+
+<li>
+Suppose you're looking for a refactoring action to replace this expression with a parameter.
+  So we need to choose <code>Introduce Parameter...</code>. Now simply type <code>pa</code> of <code>ip</code> (introduce parameter) to reduce the proposed list.
+
+<li>
+Press <code>CR</code> to start the <code>Introduce Parameter</code> refacotring.
+
+<li>
+To complete refactoring, you need to choose some name or leave the default one and press <code>CR</code>
+
+<li>
+Other usful refactoring actions are:
+
+<ul>
+<li>
+<code>inlive variable</code> -&gt; <code>Alt-Cmd-N</code>
+
+<li>
+<code>indroduce constant</code> -&gt; <code>Alt-Cmd-C</code>
+
+<ul>
+<li>
+opens up a dialog menu to choose the new constant's type, name, parent class and visability.
+
+</ul>
+</ul>
+</ul>
+
+</body>
+</html>
