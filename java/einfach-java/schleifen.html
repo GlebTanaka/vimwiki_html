@@ -680,32 +680,31 @@ jshell&gt; drawDiamond(5)
 <li>
 Eine andere Möglichkeit ohne trennung in zwei Methoden ist diese hier:
 <pre>
- public void drawDiamondShapeV2(int size) {
-     int maxRows = size * 2 - 2;
-     for (int row = 0; row &lt;= maxRows; row++)
-         int width;
-         int spaces;
-         if (row &gt;= size) {
-             width = (maxRows - row) * 2;
-             spaces = size - (maxRows - row) 
-         } else {
-             width = row * 2;
-             spaces = size - row - 1;
-         }
-         for (int col = 0; col &lt; spaces; col+
-             System.out.print(" ");
-         }
-         for (int col = 0; col &lt;= width; col+
-
-             if (col == 0 || col == width) {
-                 System.out.print("*");
-             } else {
-                 System.out.print(" ");
-             }
-         }
-         System.out.println();
-     }
- }
+public void drawDiamondShapeV2(int size) {
+    int maxRows = size * 2 - 2;
+    for (int row = 0; row &lt;= maxRows; row++) {
+        int width;
+        int spaces;
+        if (row &gt;= size) {
+            width = (maxRows - row) * 2;
+            spaces = size - (maxRows - row) - 1;
+        } else {
+            width = row * 2;
+            spaces = size - row - 1;
+        }
+        for (int col = 0; col &lt; spaces; col++) {
+            System.out.print(" ");
+        }
+        for (int col = 0; col &lt;= width; col++) {
+            if (col == 0 || col == width) {
+                System.out.print("*");
+            } else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
+}
 </pre>
 
 <ul>
