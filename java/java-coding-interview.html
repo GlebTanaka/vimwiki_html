@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="What is Java"><h3 id="What is Java" class="header"><a href="#What is Java">What is Java</a></h3></div>
+<div id="1. What is Java"><h3 id="1. What is Java" class="header"><a href="#1. What is Java">1. What is Java</a></h3></div>
 <ul>
 <li>
 Short answer, Java is a programming language. To be precise, it's an object oriented language. It has also some functional programming in it.
@@ -43,7 +43,7 @@ any type of variable you create is known at compiler time. Even if you define a 
 </ul>
 </ul>
 
-<div id="What is the Object class in Java"><h3 id="What is the Object class in Java" class="header"><a href="#What is the Object class in Java">What is the Object class in Java</a></h3></div>
+<div id="2. What is the Object class in Java"><h3 id="2. What is the Object class in Java" class="header"><a href="#2. What is the Object class in Java">2. What is the Object class in Java</a></h3></div>
 <ul>
 <li>
 the super class of every class you can create.
@@ -63,6 +63,241 @@ that means every class in Java extends the Object class.
 
 </ul>
 </ul>
+
+<div id="3. Can you cite methods from Object"><h3 id="3. Can you cite methods from Object" class="header"><a href="#3. Can you cite methods from Object">3. Can you cite methods from Object</a></h3></div>
+<ul>
+<li>
+the class <code>java.lang.Object</code> has several useful methods:
+
+<ul>
+<li>
+<code>String toString()</code> - returns a textual representation of an object
+
+<ul>
+<li>
+its better to <code>Override</code> this method for your own created classes
+
+</ul>
+<li>
+<code>boolean equals(Object)</code> - can compare an object with an other object
+
+<ul>
+<li>
+the default is comparing only the reference of an object
+
+</ul>
+<li>
+<code>int hashCode()</code> - this method is used for objects in hash based containers like <code>HashSet&lt;E&gt;</code> or <code>HashMap&lt;E&gt;</code>
+
+<ul>
+<li>
+if you <code>Override</code> <code>equals(Object)</code>, it's better to do the same for <code>hashCode()</code>
+
+</ul>
+<li>
+<code>Cass&lt;?&gt; getClass()</code> - get the Class of an Object at runtime. 
+
+<ul>
+<li>
+is used in <code>Refelction</code>
+
+</ul>
+</ul>
+<li>
+there are other methods that are useful as well in programming threads:
+
+<ul>
+<li>
+<code>wait()</code> - causes the current thread to wait until it is awakened.
+
+<li>
+<code>notify()</code> - wakes up a single thread that is waiting.
+
+<li>
+<code>notifyAll()</code> - wakes up all threads that are waiting.
+
+</ul>
+<li>
+methods you should stay away from:
+
+<ul>
+<li>
+<code>finalize()</code> - Deprecated!
+
+<li>
+<code>clone()</code> - creates and returns a copy of this object.
+
+</ul>
+</ul>
+
+<div id="4. Differences between String and char[]"><h3 id="4. Differences between String and char[]" class="header"><a href="#4. Differences between String and char[]">4. Differences between String and char[]</a></h3></div>
+<ul>
+<li>
+String:
+
+<ul>
+<li>
+<code>String</code> is an object with many useful methods that <code>char[]</code> has not
+
+<li>
+<code>String</code> is non modifiable, once you created one.
+
+<li>
+<code>String</code> is comparable with <code>equals()</code>
+
+</ul>
+<li>
+char[]:
+
+<ul>
+<li>
+<code>char[]</code> has only methods from <code>Object</code>
+
+<li>
+<code>char[]</code> has a fixed size after you created it, but you can replace the elements within it.
+
+<li>
+to compare a <code>char[]</code> use <code>Arrays.equals()</code>
+
+<li>
+use <code>Arrays.toString()</code> to print an <code>char[]</code>
+
+</ul>
+<li>
+create a <code>String</code> from <code>char[]</code> by passing it as an argument:
+<pre>
+char[] letters = {'h', 'e', 'l', 'l', 'o'};
+String hello = new String(letters);
+</pre>
+
+</ul>
+
+<div id="5. Summing an array of integers"><h3 id="5. Summing an array of integers" class="header"><a href="#5. Summing an array of integers">5. Summing an array of integers</a></h3></div>
+<ul>
+<li>
+old fashion way using for-each loop:
+<pre>
+int[] ints = {0, 1, 2, 3, 4};
+int sum = 0;
+for (int element; ints) {
+  sum += element;
+}
+</pre>
+
+<li>
+better way using a <code>Stream</code> and cal <code>sum()</code> on it:
+<pre>
+int[] ints = {0, 1, 2, 3, 4};
+int sum = Arrays.stream(ints).sum();
+// get average
+double average = Arrays.stream(ints).average().orElseThrow();
+// get minimum
+int min = Arrays.stream(ints).min().orElseThrow();
+// get maximum
+int max = Arrays.stream(ints).max().orElseThrow();
+</pre>
+
+</ul>
+
+<div id="6. What is the JVM"><h3 id="6. What is the JVM" class="header"><a href="#6. What is the JVM">6. What is the JVM</a></h3></div>
+<ul>
+<li>
+JVM stands for Java Virtual Machine
+
+<li>
+It is a peace of software that can run you Java code
+
+<ul>
+<li>
+it handles memory through CG = Garbage Collector
+
+<ul>
+<li>
+see also: <a href="https://www.youtube.com/watch?v=c32zXYAK7CI">https://www.youtube.com/watch?v=c32zXYAK7CI</a> 
+
+</ul>
+<li>
+it optimizes the code with JIT = Just In-Time Compiler
+
+<ul>
+<li>
+see also: <a href="https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s">https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s</a>
+
+</ul>
+</ul>
+<li>
+<code>HotSpot</code> is the JVM from Open JDK
+
+</ul>
+
+<pre>
+  +-------------+        +---------+        +------------+       +------------+
+  |  Sourcecode |-------&gt;|  javac  |-------&gt;|  bytecode  |------&gt;|  java(JVM) |
+  +-------------+        +---------+        +------------+       +------------+
+        .java                                   .class
+</pre>
+
+<div id="7. How can you sort an array"><h3 id="7. How can you sort an array" class="header"><a href="#7. How can you sort an array">7. How can you sort an array</a></h3></div>
+<ul>
+<li>
+simply call <code>Arrays.sort(tab)</code>
+<pre>
+int[] numbersToSort = {5, 3, 6, 2, 6, 1, 9, 0};
+Arrays.sort(numbersToSort);
+</pre>
+
+<li>
+sort() uses Dual-Pivot Quicksort sorting algorithms
+
+<li>
+don't write your own algorithm but good algorithms are:
+
+<ul>
+<li>
+QuickSort
+
+<li>
+HeapSort
+
+<li>
+TimSort
+
+</ul>
+<li>
+BubbleSort is usually a bad algorithm
+
+</ul>
+
+<div id="8. What is the main characteristic of the String class"><h3 id="8. What is the main characteristic of the String class" class="header"><a href="#8. What is the main characteristic of the String class">8. What is the main characteristic of the String class</a></h3></div>
+<ul>
+<li>
+this Class is non-modifiable
+
+<ul>
+<li>
+there is no way to modify an instance of the String class once it has been created.
+
+<li>
+if you call <code>toUpperCase()</code> on a String it creates a new String.
+
+</ul>
+<li>
+to be able to modify a String use <code>java.lang.StringBuilder</code>
+
+<ul>
+<li>
+it is recommended that this class be used in preference to <code>StringBuffer</code> as it will be faster under most implementations. 
+
+<li>
+to create a <code>String</code> from it call <code>.toString()</code> on it.
+
+<li>
+use <code>+</code> for String concatenation and <code>.append()</code> for StringBuilder
+
+</ul>
+</ul>
+
+<div id="9. What is the difference between `==` and `eqauls()`"><h3 id="9. What is the difference between `==` and `eqauls()`" class="header"><a href="#9. What is the difference between `==` and `eqauls()`">9. What is the difference between <code>==</code> and <code>eqauls()</code></a></h3></div>
 
 </body>
 </html>
