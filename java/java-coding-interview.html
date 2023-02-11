@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <title>java-coding-interview</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +43,6 @@ any type of variable you create is known at compiler time. Even if you define a 
 
 </ul>
 </ul>
-
 <div id="2. What is the Object class in Java"><h3 id="2. What is the Object class in Java" class="header"><a href="#2. What is the Object class in Java">2. What is the Object class in Java</a></h3></div>
 <ul>
 <li>
@@ -63,7 +63,6 @@ that means every class in Java extends the Object class.
 
 </ul>
 </ul>
-
 <div id="3. Can you cite methods from Object"><h3 id="3. Can you cite methods from Object" class="header"><a href="#3. Can you cite methods from Object">3. Can you cite methods from Object</a></h3></div>
 <ul>
 <li>
@@ -129,7 +128,6 @@ methods you should stay away from:
 
 </ul>
 </ul>
-
 <div id="4. Differences between String and char[]"><h3 id="4. Differences between String and char[]" class="header"><a href="#4. Differences between String and char[]">4. Differences between String and char[]</a></h3></div>
 <ul>
 <li>
@@ -171,7 +169,6 @@ String hello = new String(letters);
 </pre>
 
 </ul>
-
 <div id="5. Summing an array of integers"><h3 id="5. Summing an array of integers" class="header"><a href="#5. Summing an array of integers">5. Summing an array of integers</a></h3></div>
 <ul>
 <li>
@@ -198,7 +195,6 @@ int max = Arrays.stream(ints).max().orElseThrow();
 </pre>
 
 </ul>
-
 <div id="6. What is the JVM"><h3 id="6. What is the JVM" class="header"><a href="#6. What is the JVM">6. What is the JVM</a></h3></div>
 <ul>
 <li>
@@ -227,9 +223,6 @@ see also: <a href="https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s">https
 </ul>
 <li>
 <code>HotSpot</code> is the JVM from Open JDK
-
-</ul>
-
 <pre>
   +-------------+        +---------+        +------------+       +------------+
   |  Sourcecode |-------&gt;|  javac  |-------&gt;|  bytecode  |------&gt;|  java(JVM) |
@@ -237,6 +230,7 @@ see also: <a href="https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s">https
         .java                                   .class
 </pre>
 
+</ul>
 <div id="7. How can you sort an array"><h3 id="7. How can you sort an array" class="header"><a href="#7. How can you sort an array">7. How can you sort an array</a></h3></div>
 <ul>
 <li>
@@ -267,7 +261,6 @@ TimSort
 BubbleSort is usually a bad algorithm
 
 </ul>
-
 <div id="8. What is the main characteristic of the String class"><h3 id="8. What is the main characteristic of the String class" class="header"><a href="#8. What is the main characteristic of the String class">8. What is the main characteristic of the String class</a></h3></div>
 <ul>
 <li>
@@ -292,12 +285,44 @@ it is recommended that this class be used in preference to <code>StringBuffer</c
 to create a <code>String</code> from it call <code>.toString()</code> on it.
 
 <li>
-use <code>+</code> for String concatenation and <code>.append()</code> for StringBuilder
+use <code>+</code> for String concatenation and <code>.append()</code> for StringBuilder.
 
 </ul>
 </ul>
-
 <div id="9. What is the difference between `==` and `eqauls()`"><h3 id="9. What is the difference between `==` and `eqauls()`" class="header"><a href="#9. What is the difference between `==` and `eqauls()`">9. What is the difference between <code>==</code> and <code>eqauls()</code></a></h3></div>
+<ul>
+<li>
+<code>==</code> compares references
+
+<ul>
+<li>
+good to compare things, that are not objects:
+
+<ul>
+<li>
+int • long • char
+
+</ul>
+<li>
+dont compare float and double with <code>==</code>
+
+<li>
+use <code>isEqualWithinPrecision(double, double, double)</code>
+<pre>
+public static boolean isEquelWithinPrecision(final double value,
+                                             final double expected, final double epsilon) {
+      return (value &gt; expected - epsilon &amp;&amp; value &lt; expected + epsilon);
+}
+</pre>
+
+<li>
+every expeced value will be seen as equals, if the difference is smaler than epsilon.
+
+</ul>
+<li>
+<code>equals()</code> is a method to compare Objects.
+
+</ul>
 
 </body>
 </html>
