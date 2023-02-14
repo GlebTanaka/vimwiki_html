@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>rest_api</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="What is a REST API"><h2 id="What is a REST API" class="header"><a href="#What is a REST API">What is a REST API</a></h2></div>
+
+<p>
+Imagine you build a web application for an ice cream shop, to show the flavors fo ice cream that are in stock that day.
+And allow the workers to actually make updates to those flavors.
+You can do this with a REST API:
+</p>
+
+<ul>
+<li>
+the web app communicates with a cloud-based server via REST API.
+
+<li>
+<code>REST</code> stands for Representational State Transfer.
+
+<ul>
+<li>
+it's a standardized software architecture style, a specific type of API.
+
+<li>
+<code>API</code>  (Application Programming Interface) is a way for two or more programs to communicate with each other.
+
+<li>
+it's all about communiation. Client with Server and vice versa.
+
+<li>
+RESTful web service means that a service uses REST API to communicate.
+
+<li>
+Benefits of REST API:
+
+<ul>
+<li>
+simple and standardized approach to communication
+
+<li>
+scalable ans stateless:
+
+<ul>
+<li>
+as the service gorws in complexity you can easily make modifications
+
+<li>
+don't need to keep track of, waht data is in wich state across client and server.
+
+</ul>
+<li>
+high performance - due to the fact that they support caching.
+
+</ul>
+</ul>
+</ul>
+
+<ul>
+<li>
+for the web app you will have an endpoint <code>https://icecream.com/api/flavors</code>
+
+<ul>
+<li>
+api singals, that this is a communicatin endpoint
+
+<li>
+flavors are <code>recources</code> in this REST API
+
+</ul>
+<li>
+the main building blocks of this API are:
+
+<ul>
+<li>
+<code>request</code> that is sent from the client to the server
+
+<ul>
+<li>
+header: to pass additional iformation about the request and client itself
+
+<li>
+has an operation: like GET
+
+<li>
+an endpoint: 
+
+<li>
+a body or parameters: in JSON 
+
+</ul>
+<li>
+<code>response</code> - that is rcveived back from the server typicly in JSON      
+
+<li>
+Actions or verbs you want to make:
+
+<ul>
+<li>
+CRUD - Creat • Read • Update • Delete
+<table>
+<tr>
+<th>
+Operations
+</th>
+<th>
+SQL
+</th>
+<th>
+HTTP(REST)
+</th>
+</tr>
+<tr>
+<td>
+Create
+</td>
+<td>
+INSERT
+</td>
+<td>
+PUT or POST
+</td>
+</tr>
+<tr>
+<td>
+Read
+</td>
+<td>
+SELECT
+</td>
+<td>
+GET
+</td>
+</tr>
+<tr>
+<td>
+Update
+</td>
+<td>
+UPDATE
+</td>
+<td>
+PATCH or PUT
+</td>
+</tr>
+<tr>
+<td>
+Delete
+</td>
+<td>
+DELETE
+</td>
+<td>
+DELETE
+</td>
+</tr>
+</table>
+
+</ul>
+</ul>
+</ul>
+
+
+<div id="Questions"><h2 id="Questions" class="header"><a href="#Questions">Questions</a></h2></div>
+<ul>
+<li>
+how are REST APIs stateless?
+    An appllication, API or web service that is considered stateful stores data from the client on its own server.
+    For example if a username and password were passed from the client to the server as a from of authentication, and the server
+    stores that data, than the web server ist statfull. This is because the server is now storing data from the client.
+    REST architecture requires that the client state is not stored on the server.
+    Instead each request made by the client must contain all necessary information for that particular HTTP method.
+
+</ul>
+<blockquote>
+more here: <a href="https://www.spiceworks.com/tech/cloud/articles/stateful-vs-stateless/">https://www.spiceworks.com/tech/cloud/articles/stateful-vs-stateless/</a>
+</blockquote>
+    
+<ul>
+<li>
+Explain the HTTP methods
+    RESTful web services will use HTTP methods and client requests. The most common methods are:
+
+<ul>
+<li>
+GET - fetches a resource from the server
+
+<li>
+POST - requests for a resource to be created on the server
+
+<li>
+PUT - requests for a resource to be updated
+
+<li>
+DELETE - requests for a resource to be deleted
+    These four method correspong to CRUD opertaions
+
+</ul>
+</ul>
+   
+<ul>
+<li>
+explain the HTTP status codes
+    RESTful web services use HTTP status codes in server responses. The most common types of status codes are 200 codes.
+    200 codes represent a successful request and respons
+    400 codes represents a clien-side error
+    500 codes represents a server-side error
+
+</ul>
+
+<ul>
+<li>
+What is a URI?
+    URI stands for Uniform Resource Identifier. It identifies every resource in the REST architecutre.
+
+<ul>
+<li>
+A URI rca be one of two types
+
+<ul>
+<li>
+URN Uniform Resource Locator - wich identifies a resource through a unique and persistent name like a books ISBN
+
+<li>
+URL Uniform Resource Locator- wich is your typical web address.
+
+</ul>
+<li>
+URLs are typically used when designing REST APIs 
+
+<li>
+more here - <a href="https://de.ryte.com/wiki/URI">https://de.ryte.com/wiki/URI</a>
+
+</ul>
+</ul>
+    
+<ul>
+<li>
+What are best practice in making the URI for RESTful web-services?
+    URI should be mostly sandardizes when developing a RESTful web-service.
+    This way clients can more easily work with the web service:
+
+<ol>
+<li>
+forwar slashes indicate hierarchy
+
+<li>
+use plural nouns for branches
+
+<li>
+use hyphens for mulitple words
+
+<li>
+use lower case
+
+<li>
+refrain from using file extensions
+
+</ol>
+</ul>
+
+<ul>
+<li>
+What are the diffenreces between REST and SOAP?
+    While REST is an architecture used to develop web-services, SOAP (Simple Object Acces Protocol)
+    serves as a protocol for exchanging structured information by way of APIs.
+    While REST has felxible stndrads, SOAP standards are much more strict in that there implementation
+    and statefulness often means that the client and server are closer connected.
+    Additionally while REST allows for data transder in JSON, XML and others, SOAP only supports XML.
+    In general, SOAPis a stricter and more Niche alternative to REST. It's used where more
+    regulated and staple data needs to be transfered.
+
+</ul>
+    
+<ul>
+<li>
+What are the differences between REST and AJAX?
+    AJAX refers to asynchronous JavaScript and XML. Its a collectin of web technologies that allow for asynchronous web applications
+    using the built-in XML HTTP reqeust Object.
+    While REST API refers to an architecture for handling HTTP request,
+    AJAX refers to a collection of web technologies for making asynchronous web requests.
+    This means that a REST API may handle AJAX clients and that AJAX may be used to send RESTful requests.
+    But a REST API could never be implemented nor replaced by AJAX
+
+</ul>
+    
+<ul>
+<li>
+What are some tools used to develop and test REST APIs?
+    The tools used to develop and test REST APIs depend on the language used.
+    Different tools exists depending on whether the language is JAVA, node.js, python ect.
+    In the case of node.js frameworks like Express are commonly used.
+    For testing there is Postman, which is used to ensure resources are being deliverd and each facet of a REST API is performing as designed.
+
+</ul>
+    
+<ul>
+<li>
+What are some real-world examples of REST APIs?
+    Nearly every facet of the web. By going to the exponent website there is a GET request sent to a server at the URL
+    for the necessary HTML to display to the client. Most commonly as a developer REST APIs are used to manipluate data
+    from a particular database using the four main HHTP methods:
+
+<ul>
+<li>
+retrieving file data
+
+<li>
+accesing images
+
+<li>
+hosting a website 
+    All requires use of REST APIs
+
+</ul>
+</ul>
+    
+<ul>
+<li>
+Pro and Cons:
+
+<ul>
+<li>
+Pros:
+
+<ul>
+<li>
+easy to learn
+
+<li>
+wide range of data tranferes like JSON and XML
+
+<li>
+Statelessness - allowing for a simpler client experience
+
+<li>
+scaleability - due to the independent nature of client and server
+
+</ul>
+<li>
+disadvantages:
+
+<ul>
+<li>
+sessin not being able to be maintaned because of statelessness
+
+<li>
+a lack of build-in security measures
+
+<li>
+need to be versioned for backwards compatibility when being updated
+
+<li>
+Consistency in URIs difficult to maintain for complex projecxts
+
+</ul>
+</ul>
+</ul>
+
+<ul>
+<li>
+What is XML? - <a href="https://www.w3schools.com/xml/xml_whatis.asp">https://www.w3schools.com/xml/xml_whatis.asp</a>
+
+<ul>
+<li>
+XML is a software- and hardware-independent tool for storing and transporting data.
+
+<li>
+XML stands for eXtensible Markup Language
+
+<li>
+XML is a markup language much like HTML
+
+<li>
+XML was designed to store and transport data
+
+<li>
+XML was designed to be self-descriptive
+
+</ul>
+</ul>
+
+<ul>
+<li>
+The Difference Between XML and HTML?
+  XML and HTML were designed with different goals:
+
+<ul>
+<li>
+XML was designed to carry data - with focus on what data is
+
+<li>
+HTML was designed to display data - with focus on how data looks
+
+<li>
+XML tags are not predefined like HTML tags are
+
+</ul>
+</ul>
+
+</body>
+</html>
