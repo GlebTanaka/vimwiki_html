@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>sichtbarkeit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Sichbarkeits- und Gültigkeitsbereiche"><h2 id="Sichbarkeits- und Gültigkeitsbereiche" class="header"><a href="#Sichbarkeits- und Gültigkeitsbereiche">Sichbarkeits- und Gültigkeitsbereiche</a></h2></div>
+
+<p>
+Der <code>Gültigkeitsbereich</code> eines Namens ist der Bereich eines Programmes, wo durch den Namen auf die Variable zugegriffen werden kann.
+</p>
+
+<ul>
+<li>
+<code>Method Scope</code>
+
+<ul>
+<li>
+Wird eine Varibale innerhalb einer Methode deklariert, so besitzt sie den Method Scope.
+<pre>
+    int doSomething(String info) {
+        int length = info.length();
+        return length;
+    }
+</pre>
+
+</ul>
+</ul>
+
+<ul>
+<li>
+<code>Block Scope</code>
+
+<ul>
+<li>
+Variablen die innerhalb von Blöcken deklariert werden, sind nur in den Zeile zwischen den curly brackets zugreifbar
+
+<li>
+startend ab der Deklaration
+
+</ul>
+</ul>
+
+<pre>
+int first = 1;
+{
+    int second = 2;
+    {
+        int third = 3;
+    }
+}
+</pre>
+
+<ul>
+<li>
+<code>Class Scope</code>
+
+<ul>
+<li>
+Variablen in einer Klasse werten als Attribute bezeichnet.
+
+<li>
+Sie sind fuer alle Methoden der Klasse sichbar.
+
+<li>
+Bei Namenskonflikten mit Methoden-Parametern kann man diese mit <code>this</code> direkt ansprechen.
+
+</ul>
+</ul>
+
+</body>
+</html>
