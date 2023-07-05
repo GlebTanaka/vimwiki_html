@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <title>java-coding-interview</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +43,6 @@ any type of variable you create is known at compiler time. Even if you define a 
 
 </ul>
 </ul>
-
 <div id="2. What is the Object class in Java"><h3 id="2. What is the Object class in Java" class="header"><a href="#2. What is the Object class in Java">2. What is the Object class in Java</a></h3></div>
 <ul>
 <li>
@@ -63,7 +63,6 @@ that means every class in Java extends the Object class.
 
 </ul>
 </ul>
-
 <div id="3. Can you cite methods from Object"><h3 id="3. Can you cite methods from Object" class="header"><a href="#3. Can you cite methods from Object">3. Can you cite methods from Object</a></h3></div>
 <ul>
 <li>
@@ -129,7 +128,6 @@ methods you should stay away from:
 
 </ul>
 </ul>
-
 <div id="4. Differences between String and char[]"><h3 id="4. Differences between String and char[]" class="header"><a href="#4. Differences between String and char[]">4. Differences between String and char[]</a></h3></div>
 <ul>
 <li>
@@ -171,7 +169,6 @@ String hello = new String(letters);
 </pre>
 
 </ul>
-
 <div id="5. Summing an array of integers"><h3 id="5. Summing an array of integers" class="header"><a href="#5. Summing an array of integers">5. Summing an array of integers</a></h3></div>
 <ul>
 <li>
@@ -198,7 +195,6 @@ int max = Arrays.stream(ints).max().orElseThrow();
 </pre>
 
 </ul>
-
 <div id="6. What is the JVM"><h3 id="6. What is the JVM" class="header"><a href="#6. What is the JVM">6. What is the JVM</a></h3></div>
 <ul>
 <li>
@@ -227,9 +223,6 @@ see also: <a href="https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s">https
 </ul>
 <li>
 <code>HotSpot</code> is the JVM from Open JDK
-
-</ul>
-
 <pre>
   +-------------+        +---------+        +------------+       +------------+
   |  Sourcecode |-------&gt;|  javac  |-------&gt;|  bytecode  |------&gt;|  java(JVM) |
@@ -237,6 +230,7 @@ see also: <a href="https://www.youtube.com/watch?v=d7KHAVaX_Rs&amp;t=245s">https
       .java                                    .class
 </pre>
 
+</ul>
 <div id="7. How can you sort an array"><h3 id="7. How can you sort an array" class="header"><a href="#7. How can you sort an array">7. How can you sort an array</a></h3></div>
 <ul>
 <li>
@@ -267,7 +261,6 @@ TimSort
 BubbleSort is usually a bad algorithm
 
 </ul>
-
 <div id="8. What is the main characteristic of the String class"><h3 id="8. What is the main characteristic of the String class" class="header"><a href="#8. What is the main characteristic of the String class">8. What is the main characteristic of the String class</a></h3></div>
 <ul>
 <li>
@@ -296,7 +289,6 @@ use <code>+</code> for String concatenation and <code>.append()</code> for Strin
 
 </ul>
 </ul>
-
 <div id="9. What is the difference between `==` and `eqauls()`"><h3 id="9. What is the difference between `==` and `eqauls()`" class="header"><a href="#9. What is the difference between `==` and `eqauls()`">9. What is the difference between <code>==</code> and <code>eqauls()</code></a></h3></div>
 <ul>
 <li>
@@ -331,10 +323,7 @@ every expected value will be seen as equals, if the difference is smaller than e
 <code>equals()</code> is a method to compare Objects.
 
 </ul>
-
-
 <div id="10. What about `equals()` and `hashCode()` - Relation between them"><h3 id="10. What about `equals()` and `hashCode()` - Relation between them" class="header"><a href="#10. What about `equals()` and `hashCode()` - Relation between them">10. What about <code>equals()</code> and <code>hashCode()</code> - Relation between them</a></h3></div>
-
 <ul>
 <li>
 if two objects are equals(), they must have the same hashCode().
@@ -344,6 +333,64 @@ If you override equals(), then you must also override hashCode().
 
 <li>
 the contrary is not true, objects can have the same hashCode but are different.
+
+</ul>
+<div id="11. How can you dupblicate an array?"><h3 id="11. How can you dupblicate an array?" class="header"><a href="#11. How can you dupblicate an array?">11. How can you dupblicate an array?</a></h3></div>
+<ul>
+<li>
+you have two solutions:
+
+<ul>
+<li>
+<code>Arrays.copyOf()</code>
+
+<ul>
+<li>
+Copies the specified array, truncating or padding with false (if necessary) so the copy has the specified length.  
+          Calls System.arrayCopy() internally.
+<pre>
+    int[] array = {23, 43, 55, 12};
+    int newLength = array.length;
+
+    int[] copiedArray = Arrays.copyOf(array, newLength);
+</pre>
+
+<li>
+there is also a <code>Arrays.copyOfRange()</code> method.
+<pre>
+    int[] array = {23, 43, 55, 12};
+    int newLength = array.length;
+
+    int[] copiedArray = Arrays.copyOf(array, newLength);
+
+    
+</pre>
+
+</ul>
+<li>
+<code>System.arrayCopy()</code>
+
+<ul>
+<li>
+Copies an array from the specified source array, beginning at the specified position, to the specified position of the destination array.
+<pre>
+    int[] array = {23, 43, 55};
+    int[] copiedArray = new int[3];
+
+    System.arraycopy(array, 0, copiedArray, 0, 3);
+</pre>
+
+</ul>
+</ul>
+<li>
+there is also a <code>public Object clone()</code> method you can call an some array.
+  It returns a copy of an object, that is cast to the right type. Performance wise not efficient.
+<pre>
+    int[] array = {23, 43, 55, 12};
+ 
+    int[] copiedArray = array.clone();
+    
+</pre>
 
 </ul>
 
